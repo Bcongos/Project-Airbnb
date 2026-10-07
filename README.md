@@ -1,42 +1,34 @@
-# Análisis de Airbnb en Nueva York
+# Airbnb NYC Pricing Analysis
 
-Este repositorio contiene el análisis de datos de Airbnb en la Ciudad de Nueva York, realizado para evaluar la viabilidad de establecer precios entre $25 y $1900, aplicar descuentos en estadías largas y unificar tarifas entre Brooklyn y Manhattan. Se incluye un reporte en Power BI (archivo PDF), un análisis exploratorio de datos (EDA) y el CSV con la información original.
+Data analysis of Airbnb listings in New York City (2019) to test four pricing decisions that the commercial team had proposed without data: a price range of USD 25–1,900, an average price of USD 225, automatic discounts for long stays, and a single rate for Brooklyn and Manhattan.
 
-## Contenido del Repositorio
+## Key findings
 
-- **analisis reto 1.pdf**  
-  Reporte en Power BI que muestra los hallazgos, visualizaciones y conclusiones basados en el análisis de datos.
+| Proposal | What the data shows | Recommendation |
+|---|---|---|
+| Price range USD 25–1,900 | 90% of prices fall in a narrower range | Adjust to USD 40–1,500 |
+| Average price USD 225 | The real average is USD 152.72 | Target USD 150–160 |
+| Discounts by length of stay | Very low correlation between number of nights and price | Do not apply automatic discounts based only on length of stay |
+| Same rate for Brooklyn and Manhattan | Manhattan prices are about 40% higher | Keep differentiated rates |
 
-- **AB_NYC_2019.csv**  
-  Archivo con los datos de Airbnb utilizados para el análisis.
+## Method
 
-- **Código de Análisis**  
-  Scripts y/o notebooks en Python utilizados para realizar el EDA, empleando librerías como pandas, numpy, matplotlib y seaborn.
+1. **Data cleaning:** treatment of missing values (mean or mode; forward fill for dates).
+2. **Exploratory data analysis:** price distribution, relationship between length of stay and price, and comparison between boroughs.
+3. **Visualization:** histograms, box plots, violin plots and scatter plots in Python, plus a Power BI report.
 
-## Descripción del Análisis
+## Files
 
-El análisis se centra en:
+| File | Content |
+|---|---|
+| `analisis reto 1.pdf` | Python analysis (exported notebook): cleaning, EDA and conclusions |
+| `reto1.pdf` | Power BI report: prices by borough and rate-unification analysis |
+| `AB_NYC_2019.csv` | Original dataset |
 
-- **Evaluar el rango de precios propuesto:**  
-  Se comparó el rango sugerido ($25-$1900) con los datos reales, identificando que el 90% de los precios se encuentra entre valores más ajustados y recomendando modificar el mínimo a $40 y el máximo a $1500.
+**Tools:** Python (pandas, NumPy, Matplotlib, seaborn), Power BI.
 
-- **Revisión del precio promedio:**  
-  Se constató que el precio promedio real ($152.72) es considerablemente inferior al propuesto ($225). Se sugiere recalibrar el precio promedio objetivo a un rango de $150-$160.
+---
 
-- **Descuentos por duración de estadía:**  
-  El análisis no respalda la implementación de descuentos automáticos basados únicamente en la duración de la estadía, ya que la correlación entre el número de noches y el precio es muy baja.
+### En español
 
-- **Comparación entre zonas (Brooklyn vs Manhattan):**  
-  Los datos muestran diferencias significativas en precios, con Manhattan presentando precios aproximadamente un 40% más altos que Brooklyn. Se recomienda mantener la diferenciación de tarifas entre ambas zonas.
-
-## Metodología
-
-1. **Carga y limpieza de datos:**  
-   Se cargaron los datos del CSV, se identificaron y trataron los valores nulos (rellenado con media o moda, y en el caso de fechas se utilizó forward fill).
-
-2. **Análisis exploratorio (EDA):**  
-   Se realizaron visualizaciones para entender la distribución de precios, la relación entre la duración de estadía y el precio, y se efectuó una comparación estadística entre las zonas.
-
-3. **Visualizaciones:**  
-   Se utilizaron histogramas, boxplots, violin plots y gráficos de dispersión para extraer insights relevantes y respaldar las conclusiones del análisis.
-
+Análisis de los datos de Airbnb en Nueva York (2019) para validar cuatro decisiones de precios que el equipo comercial había propuesto sin respaldo en datos. Conclusiones: ajustar el rango de precios a USD 40–1.500, fijar el precio promedio objetivo en USD 150–160 (el real es USD 152,72), no aplicar descuentos automáticos solo por duración de la estadía (la correlación entre noches y precio es muy baja) y mantener tarifas distintas para Manhattan y Brooklyn (Manhattan es cerca de 40% más caro). El análisis en Python está en `analisis reto 1.pdf` y el informe de Power BI en `reto1.pdf`.
